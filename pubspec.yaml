@@ -31,6 +31,22 @@ dependencies:
   http:
   neumorphic_container:
 
+  # Google SignIn Button
+  flutter_signin_button:
+    #  ^1.1.0
+
+  # Google SignIN
+  google_sign_in: ^4.5.3
+
+  fluttertoast: ^7.1.6
+
+  # Firebase  
+  firebase_auth: 
+    # ^0.18.0+1
+  firebase_core :
+    #  ^0.5.3
+  firebase_database: ^4.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

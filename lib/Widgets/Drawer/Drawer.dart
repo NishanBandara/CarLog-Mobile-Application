@@ -1,11 +1,10 @@
+import 'package:CarLog_App/Model/GoogleSignIn.dart';
 import 'package:CarLog_App/Screen/HomeScreen.dart';
 import 'package:CarLog_App/Screen/LoginScreen.dart';
 import 'package:CarLog_App/Widgets/Color/CustomColor.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
-  String get imageUrl => null;
-
   @override
   Widget build(BuildContext context) {
     return email != null
@@ -27,10 +26,9 @@ class DrawerWidget extends StatelessWidget {
                   currentAccountPicture: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: new CircleAvatar(
-                      backgroundImage: AssetImage("images/CarLog_Logo.png"),
-                      // NetworkImage(
-                      //   imageUrl,
-                      // ),
+                      backgroundImage: NetworkImage(
+                        imageUrl,
+                      ),
                       radius: 30,
                       backgroundColor: Colors.transparent,
                     ),
@@ -117,7 +115,7 @@ class DrawerWidget extends StatelessWidget {
                   tileColor: primaryColor,
                   title: new GestureDetector(
                     onTap: () {
-                      // signOutGoogle();
+                      signOutGoogle();
 
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(builder: (context) {
@@ -146,7 +144,7 @@ class DrawerWidget extends StatelessWidget {
               ],
             ),
           )
-        : Text("data");
+        : CircularProgressIndicator();
   }
 }
 

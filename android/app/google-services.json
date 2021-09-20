@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1091397017071",
+    "project_id": "carlog-project",
+    "storage_bucket": "carlog-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091397017071:android:a4312a2a9901619f41aa1a",
+        "android_client_info": {
+          "package_name": "com.example.CarLog_App"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091397017071-vl7r64v1lugainb7al216vrph4f165rm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.CarLog_App",
+            "certificate_hash": "539554cbcdb063bda190119caeededecbe754e22"
+          }
+        },
+        {
+          "client_id": "1091397017071-co1hg4sdmkmqbp7sgoq38rldu6j82g4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcuuccYfL3g7ueM78KbI3xZaYYs1pQUII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091397017071-co1hg4sdmkmqbp7sgoq38rldu6j82g4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

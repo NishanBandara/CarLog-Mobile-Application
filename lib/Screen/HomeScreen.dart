@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:CarLog_App/Model/CarDetails.dart';
+import 'package:CarLog_App/Model/GoogleSignIn.dart';
 import 'package:CarLog_App/Widgets/Color/CustomColor.dart';
 import 'package:CarLog_App/Widgets/Drawer/Drawer.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,7 @@ import 'package:http/http.dart' as http;
 
 import 'DetailsScreen.dart';
 
-String name = "Nishan";
-String email = 'nishanmbandara@gmail.com';
-
-String imgURL =
-    "https://i.ibb.co/v43z1fr/Generic-compact-red-car-isolated-on-white-background.jpg";
+String imgURL = "https://i.ibb.co/dW0q3qx/2020-jaguar-e-pace-angularfront.jpg";
 // "https://i.ibb.co/zXydz1y/Car.jpg";
 
 class HomeScreen extends StatefulWidget {
@@ -61,12 +58,18 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(
           "CarLog",
           style: TextStyle(
-              color: Colors.black, fontSize: 28, fontWeight: FontWeight.w800),
+              color: Colors.white, fontSize: 28, fontWeight: FontWeight.w800),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image(image: AssetImage("images/Car.jpg")),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                imageUrl,
+              ),
+              radius: 20,
+              backgroundColor: Colors.transparent,
+            ),
           )
         ],
         backgroundColor: primaryColor,
@@ -75,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: DrawerWidget(),
       body: Column(
         children: [
-          Container(
+          Card(
+            elevation: 7,
             color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -132,20 +136,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 width: double.infinity,
                                 height: 3,
-                                color: Colors.green,
+                                color: secondaryColor,
                               ),
                               Stack(children: [
-                                Center(
-                                  child: Image(
-                                    image: NetworkImage(imgURL), width: 300,
-                                    height: 110,
-                                    //  AssetImage("images/Car.jpg"),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 50, bottom: 20),
+                                  child: Center(
+                                    child: Image(
+                                      image: NetworkImage(imgURL), width: 300,
+                                      height: 110,
+                                      //  AssetImage("images/Car.jpg"),
+                                    ),
                                   ),
                                 )
                               ]),
-                              SizedBox(
-                                height: 72,
-                              ),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,

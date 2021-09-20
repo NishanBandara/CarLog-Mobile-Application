@@ -1,5 +1,9 @@
+import 'package:CarLog_App/Model/GoogleSignIn.dart';
 import 'package:CarLog_App/Widgets/CustomPainter/BackgroundPainter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'HomeScreen.dart';
 
@@ -30,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Image(
                   image: AssetImage("images/CarLog_Logo.png"),
                   height: 200,
-                  width: 270,
+                  width: 300,
                 ),
               ),
 
@@ -72,10 +76,37 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                  onTap: () async {
+                    await Fluttertoast.showToast(
+                        msg: "Please wiat a moment ...",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 5,
+                        backgroundColor: Colors.white,
+                        textColor: Colors.black,
+                        //  ProjectColor().Clr_DarkBlue,
+                        fontSize: 10.0);
+
+                    // signInWithGoogle();
+
+                    googleSignIn().whenComplete(
+                      () {
+                        if (name != null) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) {
+                              print("****************************************");
+                              print("Name:" + name + "   |  Email:" + email);
+                              print("****************************************");
+
+                              print("****************************************");
+                              // return Farmer_PersonalInfor();
+
+// Check Shared preference Status
+                              return HomeScreen();
+                            }),
+                          );
+                        }
+                      },
                     );
                   },
                 ),
@@ -140,5 +171,17 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     );
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    final GoogleSignInAccount googleuser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication googleAuth =
+        await googleuser.authentication;
+
+    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+    Fluttertoast.showToast(msg: "Account created");
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
