@@ -2,6 +2,7 @@ import 'package:CarLog_App/Model/GoogleSignIn.dart';
 import 'package:CarLog_App/Widgets/CustomPainter/BackgroundPainter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -13,6 +14,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  static final FacebookLogin facebookSignIn = new FacebookLogin();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
 // ****************** google Facebook Button *************************************
               Padding(
-                padding: const EdgeInsets.fromLTRB(85, 3, 85, 3),
+                padding: const EdgeInsets.fromLTRB(80, 3, 80, 3),
                 child: InkWell(
                   child: Container(
                     height: 40,
@@ -161,7 +163,33 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  onTap: () async {},
+                  onTap: () async {
+                    final FacebookLoginResult result =
+                        await facebookSignIn.logIn(['email']);
+
+                    switch (result.status) {
+                      case FacebookLoginStatus.loggedIn:
+                        final FacebookAccessToken accessToken =
+                            result.accessToken;
+                        print('''
+         Logged in!
+         
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expires}
+         Permissions: ${accessToken.permissions}
+         Declined permissions: ${accessToken.declinedPermissions}
+         ''');
+                        break;
+                      case FacebookLoginStatus.cancelledByUser:
+                        print('Login cancelled by the user.');
+                        break;
+                      case FacebookLoginStatus.error:
+                        print('Something went wrong with the login process.\n'
+                            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+                        break;
+                    }
+                  },
                 ),
               ),
 

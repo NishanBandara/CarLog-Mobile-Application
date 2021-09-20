@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name = "app_name">CarLog_Mobile.</string>
+
+    <string name="facebook_app_id">2184527928378197</string>
+
+    <string name="fb_login_protocol_scheme">fb2184527928378197</string>
+    
+</resources>
+
+

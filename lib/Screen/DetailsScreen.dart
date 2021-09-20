@@ -44,13 +44,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
         children: [
           CustomPaint(painter: BackgroundPainter()),
           Container(
-            height: 300,
+            height: 1000,
             child: Column(
               children: [
                 // Spacer(),
 
                 Container(
-                  height: 600,
+                  height: 550,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: SingleChildScrollView(
@@ -65,12 +65,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             Center(
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                                    const EdgeInsets.fromLTRB(20, 0, 20, 0),
                                 child: Image(
                                   image: NetworkImage(
                                     "https://i.ibb.co/dW0q3qx/2020-jaguar-e-pace-angularfront.jpg",
                                   ),
-                                  height: 200,
+                                  height: 150,
                                   width: 300,
                                 ),
                               ),
@@ -93,7 +93,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                       child: Icon(
                                         Icons.info_outline,
                                         color: secondaryColor,
-                                        size: 45,
+                                        size: 30,
                                       ),
                                       // borderColor: Colors.orange,
                                     ),
@@ -111,7 +111,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                     child: Icon(
                                       Icons.settings,
                                       color: secondaryColor,
-                                      size: 45,
+                                      size: 30,
                                     ),
                                   ),
                                 ),
@@ -127,7 +127,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                     child: Icon(
                                       Icons.monetization_on_sharp,
                                       color: secondaryColor,
-                                      size: 45,
+                                      size: 30,
                                     ),
                                   ),
                                 ),
@@ -154,7 +154,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(60, 1, 60, 5),
+                              padding: const EdgeInsets.fromLTRB(60, 1, 60, 3),
                               child: const Divider(
                                 height: 1,
                                 thickness: 1,

@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: InkWell(
                       onTap: () {
 // *************************** Assign Data ************************************
-                        // imgUlr = imgURL;
+
                         brandName = _cars[index].carBrand;
                         vehiclePrice = _cars[index].carPrice;
                         horsePower = _cars[index].horsePower;
@@ -142,11 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 50, bottom: 20),
-                                  child: Center(
-                                    child: Image(
-                                      image: NetworkImage(imgURL), width: 300,
-                                      height: 110,
-                                      //  AssetImage("images/Car.jpg"),
+                                  child: Container(
+                                    child: Center(
+                                      child: Image(
+                                        image: NetworkImage(imgURL), width: 300,
+                                        height: 110,
+                                        //  AssetImage("images/Car.jpg"),
+                                      ),
                                     ),
                                   ),
                                 )
