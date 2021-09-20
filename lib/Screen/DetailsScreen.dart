@@ -1,9 +1,8 @@
 import 'package:CarLog_App/Widgets/Color/CustomColor.dart';
 import 'package:CarLog_App/Widgets/CustomPainter/BackgroundPainter.dart';
 import 'package:flutter/material.dart';
-import 'package:neumorphic_container/neumorphic_container.dart';
 
-String brandName;
+String brandName, imgUlr;
 double vehiclePrice, horsePower;
 
 class DetailsScreen extends StatefulWidget {
@@ -24,7 +23,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image(image: AssetImage("images/Car.jpg")),
+            child: Image(
+                image: NetworkImage("https://i.ibb.co/sqDmwxT/appstore.png")),
           )
         ],
         backgroundColor: primaryColor,
@@ -61,7 +61,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Image(
-                            image: AssetImage("images/Car.jpg"),
+                            image: NetworkImage(
+                              "https://i.ibb.co/v43z1fr/Generic-compact-red-car-isolated-on-white-background.jpg",
+                            ),
                             height: 100,
                             width: 120,
                           ),
@@ -141,7 +143,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(35, 5, 3, 3),
                             child: Text(
-                              horsePower.toString() + " Avg. HP",
+                              horsePower.toStringAsFixed(2) + " Avg. HP",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.black45,
@@ -151,24 +153,26 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           ),
 
 // **************************** Price *************************************
+                          //
+
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(35, 10, 3, 3),
-                            child: Text(
-                              "Price",
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(35, 5, 3, 3),
-                            child: Text(
-                              "Rs. " + vehiclePrice.toString(),
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black45,
-                              ),
+                            padding:
+                                const EdgeInsets.only(left: 180, right: 15),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0))),
+                              width: 200,
+                              height: 40,
+                              child: Center(
+                                  child: Text(
+                                "Rs. " + vehiclePrice.toStringAsFixed(2),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500),
+                              )),
                             ),
                           ),
 
