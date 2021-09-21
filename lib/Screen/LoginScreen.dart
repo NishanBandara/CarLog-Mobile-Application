@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import 'HomeScreen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -86,10 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         timeInSecForIosWeb: 5,
                         backgroundColor: Colors.white,
                         textColor: Colors.black,
-                        //  ProjectColor().Clr_DarkBlue,
                         fontSize: 10.0);
-
-                    // signInWithGoogle();
 
                     googleSignIn().whenComplete(
                       () {
@@ -98,12 +94,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             MaterialPageRoute(builder: (context) {
                               print("****************************************");
                               print("Name:" + name + "   |  Email:" + email);
+                              print("Login Succesfully !");
                               print("****************************************");
-
-                              print("****************************************");
-                              // return Farmer_PersonalInfor();
-
-// Check Shared preference Status
+                              Fluttertoast.showToast(
+                                  msg: "Login has been Successfully!",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 5,
+                                  backgroundColor: Colors.white,
+                                  textColor: Colors.black,
+                                  fontSize: 10.0);
                               return HomeScreen();
                             }),
                           );

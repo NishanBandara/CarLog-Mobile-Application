@@ -1,6 +1,7 @@
 import 'package:CarLog_App/Model/GoogleSignIn.dart';
 import 'package:CarLog_App/Screen/HomeScreen.dart';
 import 'package:CarLog_App/Screen/LoginScreen.dart';
+import 'package:CarLog_App/Screen/ProfileScreen.dart';
 import 'package:CarLog_App/Widgets/Color/CustomColor.dart';
 import 'package:flutter/material.dart';
 
@@ -79,7 +80,7 @@ class DrawerWidget extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-// ******************   list 1 - Profile **********************************************
+// ******************   list 2 - Profile **********************************************
                 Container(
                   child: ListTile(
                     title: Text(
@@ -91,8 +92,7 @@ class DrawerWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            Icon(Icons.verified_user,
-                                size: 30, color: grayColor)
+                            Icon(Icons.person, size: 30, color: grayColor)
                           ],
                         ),
                       ),
@@ -100,7 +100,12 @@ class DrawerWidget extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) {
+                        return ProfileScreen();
+                      }));
+                    },
                   ),
                 ),
 

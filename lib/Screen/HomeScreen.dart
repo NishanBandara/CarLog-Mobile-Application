@@ -11,7 +11,6 @@ import 'package:http/http.dart' as http;
 import 'DetailsScreen.dart';
 
 String imgURL = "https://i.ibb.co/dW0q3qx/2020-jaguar-e-pace-angularfront.jpg";
-// "https://i.ibb.co/zXydz1y/Car.jpg";
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+// *********************** Fetching API  **************************************
+
   List<CarDetails> _cars = List<CarDetails>();
 
   Future<List<CarDetails>> fetchCarDetails() async {
@@ -157,43 +158,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  // Padding(
-                                  //   padding: const EdgeInsets.all(3.0),
-                                  //   child: Text(
-                                  //     _cars[index]
-                                  //         .horsePower
-                                  //         .toStringAsFixed(2),
-                                  //     style: TextStyle(
-                                  //         color: Colors.black54, fontSize: 13),
-                                  //   ),
-                                  // ),
-                                  // SizedBox(
-                                  //   height: 12,
-                                  // ),
-                                  // Padding(
-                                  //   padding: const EdgeInsets.only(
-                                  //       left: 60, right: 10),
-                                  //   child: Container(
-                                  //     decoration: BoxDecoration(
-                                  //         color: primaryColor,
-                                  //         borderRadius: BorderRadius.all(
-                                  //             Radius.circular(30.0))),
-                                  //     width: 120,
-                                  //     height: 30,
-                                  //     child: Center(
-                                  //         child: Text(
-                                  //       "Rs. " +
-                                  //           _cars[index]
-                                  //               .carPrice
-                                  //               .toStringAsFixed(0),
-                                  //       style: TextStyle(
-                                  //           color: Colors.white,
-                                  //           fontSize: 18,
-                                  //           fontWeight: FontWeight.w500),
-                                  //     )),
-                                  //   ),
-                                  // )
-
                                   Container(
                                     decoration: BoxDecoration(
                                       color: primaryColor,
